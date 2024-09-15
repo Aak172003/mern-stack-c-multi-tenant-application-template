@@ -1,12 +1,11 @@
+// This is used for api testing
+
 import request from "supertest";
 import app from "../../src/app";
 
 describe("Post auth/register", () => {
     // happy path
-    describe("Given all fields", () => {});
-
-    // sad path
-    describe("Fields are missing", () => {
+    describe("Given all fields", () => {
         test("should return the 201 statusCode", async () => {
             // AAA -> define below
 
@@ -23,7 +22,7 @@ describe("Post auth/register", () => {
                 .post("/auth/register")
                 .send(userData);
 
-            // Assert -> matcher
+            // Assert -> matcher (toBe)
             expect(response.statusCode).toBe(201);
         });
 
@@ -51,4 +50,7 @@ describe("Post auth/register", () => {
             ).toEqual(expect.stringContaining("json"));
         });
     });
+
+    // sad path
+    describe("Fields are missing", () => {});
 });
